@@ -1,6 +1,6 @@
 "use client";
 
-import { Shield, Timer } from 'lucide-react';
+import { Shield } from 'lucide-react';
 import { motion } from "framer-motion";
 import { useState, useEffect} from "react"
 import  Login from './Components/Login';
