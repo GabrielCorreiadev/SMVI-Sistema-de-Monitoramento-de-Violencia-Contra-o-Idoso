@@ -18,7 +18,7 @@ export default function Homepage()   {
       setTimeout(() => {
         setShowLogin(true);
       }, 1500); 
-    }, 2000);
+    }, 2500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -26,16 +26,13 @@ export default function Homepage()   {
   if(showLogin){
     return <Login/>;
   }
-
-
-
-
+  
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900">
       <motion.h1
         initial={{ opacity: 0, y: -50 }} // Começa invisível e sobe
         animate={isExiting? {opacity: 0, y: 50} : { opacity: 1, y: 0 }} 
-        transition={{ duration: 1.5, ease: "easeOut" }} 
+        transition={{ duration: 2.5, ease: "easeOut" }} 
         className="text-9xl font-extrabold text-white flex items-center gap-4"
       >
         <Shield className="h-40 w-30" /> SMVI
