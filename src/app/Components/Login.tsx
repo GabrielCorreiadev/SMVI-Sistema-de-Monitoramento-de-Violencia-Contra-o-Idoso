@@ -19,21 +19,20 @@ export default function Login() {
         initial={{ opacity: 0, scale: 0.11, y: -30 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative bg-gray-800 bg-opacity-80 backdrop-blur-lg p-10 rounded-xl shadow-2xl w-96 border border-blue-500/20"
+        className="relative bg-gray-800 bg-opacity-80 backdrop-blur-lg p-6 sm:p-8 md:p-10 rounded-xl shadow-2xl w-80 sm:w-96 md:w-1/3 border border-blue-500/20"
       >
         {/* Efeito sutil de brilho na borda */}
         <div className="absolute inset-0 bg-blue-500 opacity-10 blur-xl rounded-xl pointer-events-none"></div>
 
-
-        <h2 className="text-3xl font-bold text-white text-center mb-6">
+        <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-6">
           Bem-vindo de volta
         </h2>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label className="block text-gray-300 text-sm mb-1 ">E-mail</label>
+            <label className="block text-gray-300 text-sm mb-1">E-mail</label>
             <input
               type="email"
-               className="w-full p-3 rounded-lg border border-gray-600 bg-gray-700 bg-opacity-50 text-white outline-none hover:bg-gray-600 hover:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:bg-gray-700 transition-all"
+              className="w-full p-3 rounded-lg border border-gray-600 bg-gray-700 bg-opacity-50 text-white outline-none hover:bg-gray-600 hover:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:bg-gray-700 transition-all"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -56,13 +55,11 @@ export default function Login() {
             Entrar
           </button>
           <div className="flex items-center gap-3">
-          <p className="text-sm text-white">Esqueceu a senha?</p>
-          <p className="text-sm text-blue-500 cursor-pointer hover:underline">Clique aqui</p>
+            <p className="text-sm text-white">Esqueceu a senha?</p>
+            <p className="text-sm text-blue-500 cursor-pointer hover:underline">Clique aqui</p>
           </div>
-
         </form>
       </motion.div>
     </div>
-    
   );
 }
