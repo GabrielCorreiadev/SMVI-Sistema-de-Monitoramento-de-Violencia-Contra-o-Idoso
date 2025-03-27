@@ -1,10 +1,8 @@
 // Dashboard.tsx
 "use client"
 
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react"
-import { ShieldAlert, Users, Settings, Bell, Search, ChevronDown, BarChart3,
-    DollarSign, ShoppingCart, UserPlus} from 'lucide-react';
+import { useState } from "react"
+import { ShieldAlert, Users, Settings, Bell, Search, ChevronDown } from 'lucide-react';
 import DouglasProfile from "../assets/douglas.profile.jpeg"
 
 import { SidebarState, ProfileImage, NavLink } from '../Components/types'; // Importando os tipos
