@@ -27,7 +27,7 @@ export default function Homepage() {
   }
   
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900">
+    <div className="flex flex-col items-center justify-center min-h-screen  bg-gray-900">
       <motion.h1
         initial={{ opacity: 0, y: -50 }} // Começa invisível e sobe
         animate={isExiting ? { opacity: 0, y: 50 } : { opacity: 1, y: 0 }} 

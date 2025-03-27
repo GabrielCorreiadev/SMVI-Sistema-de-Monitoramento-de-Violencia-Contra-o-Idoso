@@ -1,17 +1,34 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import Dashboard from "../Components/Dashboard"; 
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const router = useRouter();
+
+  // Credenciais fictícias
+  const validEmail = "teste@email.com";
+  const validPassword = "123456";
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Email:", email);
-    console.log("Senha:", password);
+
+    if (email === validEmail && password === validPassword) {
+      // Redireciona para a página dashboard
+      setIsLoggedIn(true); 
+    } else {
+      alert("E-mail ou senha incorretos!");
+    }
   };
+
+  if (isLoggedIn) {
+    return <Dashboard />;
+  }
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
@@ -19,7 +36,7 @@ export default function Login() {
         initial={{ opacity: 0, scale: 0.11, y: -30 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative bg-gray-800 bg-opacity-80 backdrop-blur-lg p-6 sm:p-8 md:p-10 rounded-xl shadow-2xl w-80 sm:w-96 md:w-1/3 border border-blue-500/20"
+        className="relative bg-gray-800 bg-opacity-80 backdrop-blur-lg p-10 sm:p-8 md:p-10 rounded-xl shadow-2xl w-80 sm:w-96 md:w-1/3 border border-blue-500/20"
       >
         {/* Efeito sutil de brilho na borda */}
         <div className="absolute inset-0 bg-blue-500 opacity-10 blur-xl rounded-xl pointer-events-none"></div>

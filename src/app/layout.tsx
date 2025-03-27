@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="shield-alert.png"/>
       </head>
       <body className="bg-gray-100 text-gray-900">
-        <main className="container">{children}</main>
+        <main className="container max-w-1351">{children}</main>
       </body>
     </html>
   );
