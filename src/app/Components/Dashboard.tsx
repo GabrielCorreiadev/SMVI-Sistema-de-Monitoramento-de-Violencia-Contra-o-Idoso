@@ -6,6 +6,9 @@ import { ShieldAlert, FolderPen, Settings, Bell, Search, ChevronDown } from 'luc
 import DouglasProfile from "../assets/douglas.profile.jpeg"
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { SidebarState, ProfileImage, NavLink } from '../Components/types';
+import FormType  from "./Form";
+import ConfigConta from "./Config";
+
 
 export default function Dashboard() {
   const [isSidebarOpen, setIsSidebarOpen] = useState<SidebarState>(true);
@@ -113,18 +116,18 @@ export default function Dashboard() {
         return (
           <main className="p-6 bg-gray-100 flex-1 overflow-auto min-w-0">
             <BackButton />
-            <div className="text-xl">📝 Formulário de denúncia (em construção)</div>
+            <FormType />
           </main>
         );
       case "Configurações":
         return (
           <main className="p-6 bg-gray-100 flex-1 overflow-auto min-w-0">
             <BackButton />
-            <div className="text-xl">⚙️ Página de configurações (em construção)</div>
+            <ConfigConta/>
           </main>
         );
       default:
-        return null;
+        return null
     }
   };
 
@@ -177,13 +180,14 @@ export default function Dashboard() {
               )}
 
               {(!isSidebarOpen || window.innerWidth >= 640) && (
-                <div className="relative w-full max-w-xs">
+                <div className="pl-2.5 relative w-full max-w-xs">
+                   <Search className="absolute left-6 top-3 h-5 w-6 text-gray-400" />
                   <input
                     type="text"
                     placeholder="Pesquisar..."
-                    className="w-full pl-10 pr-4 py-1 border border-transparent hover:border-black focus:border-black rounded-lg transition duration-200 focus:outline-none"
+                    className="w-full text-center pr-4 py-2 border border-transparent hover:border-black focus:border-black rounded-lg transition duration-200 focus:outline-none"
                   />
-                  <Search className="absolute left-3 top-2 h-4 w-4 text-gray-400" />
+                
                 </div>
               )}
 
