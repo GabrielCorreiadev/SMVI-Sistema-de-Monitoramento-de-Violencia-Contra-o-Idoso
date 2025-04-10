@@ -135,7 +135,8 @@ export default function Dashboard() {
     <div className="flex h-screen bg-gray-100 overflow-hidden w-full">
       <aside
         ref={sidebarRef}
-        className={`bg-indigo-700 text-white w-64 flex-shrink-0 ${isSidebarOpen ? '' : 'hidden'}`}
+        className={`bg-indigo-700 text-white w-full md:w-64 flex-shrink-0 transform transition-transform duration-300 ease-in-out
+          ${isSidebarOpen ? '' : 'hidden'}` }
       >
         <div className="justify-center items-center p-3 pt-8">
           <h1 className="text-2xl font-bold flex items-center justify-center gap-3">
@@ -146,8 +147,11 @@ export default function Dashboard() {
         <nav className="mt-7">
           {navLinks.map((link) => (
             <button
-              key={link.label}
-              onClick={() => setActiveScreen(link.label)}
+            key={link.label}
+            onClick={() => {
+              setActiveScreen(link.label);
+              if (window.innerWidth < 640) setIsSidebarOpen(false); 
+            }}
               className={`flex items-center w-full text-left px-4 py-3 hover:bg-indigo-800 transition-colors ${
                 activeScreen === link.label ? "bg-indigo-800" : ""
               }`}
