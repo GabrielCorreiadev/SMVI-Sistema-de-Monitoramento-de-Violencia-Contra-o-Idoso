@@ -2,12 +2,13 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { ShieldAlert, FolderPen, Settings, Bell, Search, ChevronDown } from 'lucide-react';
+import { ShieldAlert, FolderPen, Settings, Bell, Search, ChevronDown, Info } from 'lucide-react';
 import DouglasProfile from "../assets/douglas.profile.jpeg"
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { SidebarState, ProfileImage, NavLink } from '../Components/types';
-import FormType  from "./Form";
+import FormType from "./Form";
 import ConfigConta from "./Config";
+import Denuncia from "./Denuncia";
 
 
 export default function Dashboard() {
@@ -44,8 +45,10 @@ export default function Dashboard() {
 
   const navLinks: NavLink[] = [
     { href: "#", label: "Dashboard", icon: <ShieldAlert className="h-5 w-5 mr-3" /> },
+    { href: "#", label: "Sistema de Denúncias", icon: <Info className="h-5 w-5 mr-3" /> },
     { href: "#", label: "Formulário", icon: <FolderPen className="h-5 w-5 mr-3" /> },
     { href: "#", label: "Configurações", icon: <Settings className="h-5 w-5 mr-3" /> },
+    
   ];
 
   const profileImage: ProfileImage = DouglasProfile;
@@ -109,7 +112,7 @@ export default function Dashboard() {
                   </ResponsiveContainer>
                 </div>
               </div>
-            </div>
+            </div> 
           </main>
         );
       case "Formulário":
@@ -123,7 +126,14 @@ export default function Dashboard() {
         return (
           <main className="p-6 bg-gray-100 flex-1 overflow-auto min-w-0">
             <BackButton />
-            <ConfigConta/>
+            <ConfigConta />
+          </main>
+        );
+        case "Sistema de Denúncias":
+        return (
+          <main className="p-6 bg-gray-100 flex-1 overflow-auto min-w-0">
+            <BackButton />
+            <Denuncia/>
           </main>
         );
       default:
@@ -136,7 +146,7 @@ export default function Dashboard() {
       <aside
         ref={sidebarRef}
         className={`bg-indigo-700 text-white w-full md:w-64 flex-shrink-0 transform transition-transform duration-300 ease-in-out
-          ${isSidebarOpen ? '' : 'hidden'}` }
+          ${isSidebarOpen ? '' : 'hidden'}`}
       >
         <div className="justify-center items-center p-3 pt-8">
           <h1 className="text-2xl font-bold flex items-center justify-center gap-3">
@@ -147,14 +157,13 @@ export default function Dashboard() {
         <nav className="mt-7">
           {navLinks.map((link) => (
             <button
-            key={link.label}
-            onClick={() => {
-              setActiveScreen(link.label);
-              if (window.innerWidth < 640) setIsSidebarOpen(false); 
-            }}
-              className={`flex items-center w-full text-left px-4 py-3 hover:bg-indigo-800 transition-colors ${
-                activeScreen === link.label ? "bg-indigo-800" : ""
-              }`}
+              key={link.label}
+              onClick={() => {
+                setActiveScreen(link.label);
+                if (window.innerWidth < 640) setIsSidebarOpen(false);
+              }}
+              className={`flex items-center w-full text-left px-4 py-3 hover:bg-indigo-800 transition-colors ${activeScreen === link.label ? "bg-indigo-800" : ""
+                }`}
             >
               {link.icon}
               {link.label}
@@ -163,7 +172,7 @@ export default function Dashboard() {
         </nav>
       </aside>
 
-      <div className="flex-1 flex flex-col overflow-hidden min-w-0">
+      <div className="flex-1 flex flex-col  overflow-hidden min-w-0">
         <header className="bg-white shadow-sm">
           <div className="flex items-center justify-between p-4">
             <button
@@ -185,13 +194,13 @@ export default function Dashboard() {
 
               {(!isSidebarOpen || window.innerWidth >= 640) && (
                 <div className="pl-2.5 relative w-full max-w-xs">
-                   <Search className="absolute left-6 top-3 h-5 w-6 text-gray-400" />
+                  <Search className="absolute left-6 top-3 h-5 w-6 text-gray-400" />
                   <input
                     type="text"
                     placeholder="Pesquisar..."
                     className="w-full text-center pr-4 py-2 border border-transparent hover:border-black focus:border-black rounded-lg transition duration-200 focus:outline-none"
                   />
-                
+
                 </div>
               )}
 

@@ -15,18 +15,3 @@ export type NavLink = {
   icon: React.ReactNode; // Pode ser qualquer componente de ícone
 };
 
-type props ={
-  image:string;
-};
-
-type FormType = {
-    nomeVitima: string;
-    idade: number;
-    bairro: string;
-    tipo: string;
-    localAgressao: string;
-    nomeAgressor: string;
-    sexoAgressor: string;
-    data: Date;
-
-};

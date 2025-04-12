@@ -11,6 +11,7 @@ export default function FormDenuncia() {
     nomeAgressor: "",
     sexoAgressor: "",
     data: "",
+    grauDenuncia:"",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -24,7 +25,7 @@ export default function FormDenuncia() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 rounded-xl shadow w-full">
+    <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 rounded-xl shadow w-full flex-col">
       <h2 className="text-xl font-semibold text-indigo-700">Nova Denúncia</h2>
 
       <div>
@@ -108,6 +109,23 @@ export default function FormDenuncia() {
             <option value="masculino">Masculino</option>
             <option value="feminino">Feminino</option>
             <option value="outro">Outro</option>
+          </select>
+        </div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm">Grau da Denúncia</label>
+          <select
+            name="grauDenúncia"
+            value={form.grauDenuncia}
+            onChange={handleChange}
+            className="w-full p-2 border rounded"
+            required
+          >
+            <option value="">Selecione...</option>
+            <option value="Baixo">Baixo</option>
+            <option value="Medio">medio</option>
+            <option value="Alto">Alto</option>
           </select>
         </div>
         <div>
