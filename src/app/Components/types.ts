@@ -1,17 +1,29 @@
 // types.ts
 
-import { StaticImageData } from "next/image"; // Importando o tipo correto
+import { StaticImageData } from "next/image";
+import { ReactNode } from "react";
 
-// Tipo para a visibilidade do sidebar
+// Estado do sidebar (aberto ou fechado)
 export type SidebarState = boolean;
 
-// Tipo para a imagem de perfil
-export type ProfileImage = StaticImageData; // Atualizando para StaticImageData
+// Imagem de perfil (formato usado pelo next/image)
+export type ProfileImage = StaticImageData;
 
-// Tipo para um link de navegação
+// Link da sidebar ou navegação geral
 export type NavLink = {
-  href: string;
-  label: string;
-  icon: React.ReactNode; // Pode ser qualquer componente de ícone
+  href: string;       // Ex: "/dashboard"
+  label: string;      // Ex: "Dashboard"
+  icon: ReactNode;    // Ícone (componente React como <Home />)
 };
 
+// Tipagem do formulário de denúncia
+export interface FormDenunciaData {
+  nomeVitima: string;
+  idade: string;
+  bairro: string;
+  tipo: string;
+  nomeAgressor: string;
+  sexoAgressor: string;
+  data: string;
+  grauDenuncia: string;
+}

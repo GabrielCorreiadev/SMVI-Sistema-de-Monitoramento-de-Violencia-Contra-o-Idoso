@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { FormDenunciaData } from "./types";
 
 export default function FormDenuncia() {
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<FormDenunciaData>({
     nomeVitima: "",
     idade: "",
     bairro: "",
@@ -116,7 +117,7 @@ export default function FormDenuncia() {
         <div>
           <label className="block text-sm">Grau da Denúncia</label>
           <select
-            name="grauDenúncia"
+            name="grauDenuncia"
             value={form.grauDenuncia}
             onChange={handleChange}
             className="w-full p-2 border rounded"
