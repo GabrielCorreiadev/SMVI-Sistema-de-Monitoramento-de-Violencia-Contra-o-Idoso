@@ -13,7 +13,7 @@ export type ProfileImage = StaticImageData;
 export type NavLink = {
   href: string;       // Ex: "/dashboard"
   label: string;      // Ex: "Dashboard"
-  icon: ReactNode;    // Ícone (componente React como <Home />)
+  icon: ReactNode;   // Ícone (componente React como <Home />)
 };
 
 // Tipagem do formulário de denúncia
